@@ -166,9 +166,7 @@ void GetHTTPSResponce(HostAddr addr){
     do {
         iRes = SSL_read(ssl,buf,sizeof(buf));
         TotalRecv += iRes;
-        if (iRes == 1024){
-            file << buf;
-        } else for (int i = 0; i <= iRes; i++) file << buf[i];
+        for (int i = 0; i < iRes; i++) file << buf[i];
 
         //cout << buf;
         cout << "Bytes recieved: " << iRes << '\n';
